@@ -28,3 +28,35 @@ The last command here will ensure that your system has access to pull software f
 <b>2.) Install kubectl from kubernetes.io repos</b>
 
 Now that you have the kubernetes.io repos available on your Debian stretch system, you can now use apt to install the kubectl software.
+
+```bash
+#Install kubectl
+sudo apt install kubectl
+```
+
+You can confirm that the installation is working by requesting kubectl to print the version
+
+```java
+akalaj@node1:~$ kubectl version
+Client Version: version.Info{Major:"1", Minor:"6", GitVersion:"v1.6.0", GitCommit:"fff5156092b56e6bd60fff75aad4dc9de6b6ef37", GitTreeState:"clean", BuildDate:"2017-03-28T16:36:33Z", GoVersion:"go1.7.5", Compiler:"gc", Platform:"linux/amd64"}
+The connection to the server localhost:8080 was refused - did you specify the right host or port?
+```
+
+<b>3.) Install minikube from kubernetes.io using curl</b>
+
+<b>Minikube</b> is a binary that we need to have present on our machine. We will pull the amd64 version of the binary directly from the googleapis repo using curl. Once it's in usr/local, we'll have the ability to call it from anywhere.
+
+```bash
+#Download and place minikube binary in /usr/local/bin
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.28.1/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
+```
+To verify that minikube is working, try and extract the version.
+
+```java
+akalaj@worknode:~/personal/kubernetes$ minikube version
+minikube version: v0.28.1
+```
+
+## Setting The Stage For Wordpress on Kubernetes (file configuration)
+
+Test, test, test
